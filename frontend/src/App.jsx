@@ -1,24 +1,28 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Sidebar from "./components/Sidebar";
+import Layout from "./components/Layout";
 import Dashboard from "./pages/Dashboard";
-import Profiles from "./pages/Profiles";
 import Search from "./pages/Search";
 import Reports from "./pages/Reports";
+import Profiles from "./pages/Profiles";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 export default function App() {
   return (
     <Router>
-      <div className="flex">
-        <Sidebar />
-        <div className="flex-1 bg-gray-50 min-h-screen">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/profiles" element={<Profiles />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/reports" element={<Reports />} />
-          </Routes>
-        </div>
-      </div>
+      <Routes>
+        {/* Public routes */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+
+        {/* Protected layout routes */}
+        <Route element={<Layout />}>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/profiles" element={<Profiles />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/reports" element={<Reports />} />
+        </Route>
+      </Routes>
     </Router>
   );
 }

@@ -6,29 +6,56 @@ export default function Reports() {
   ];
 
   return (
-    <div className="p-6 flex-1">
-      <h2 className="text-2xl font-semibold mb-4">Generated Reports</h2>
+    <div className="p-4 sm:p-6 flex-1 animate-fadeIn">
+      {/* Heading with animated gradient text */}
+      <h2 className="text-2xl sm:text-3xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradientMove">
+        Generated Reports
+      </h2>
 
-      <div className="bg-white shadow rounded-lg p-4">
-        <table className="w-full text-left border-collapse">
+      {/* Card container */}
+      <div className="bg-white shadow-xl rounded-2xl p-4 overflow-x-auto border border-gray-200 transition-transform duration-300 hover:shadow-2xl">
+        <table className="w-full min-w-[500px] text-left border-collapse">
           <thead>
-            <tr className="border-b">
-              <th className="py-2">Profile Name</th>
-              <th className="py-2">Date</th>
-              <th className="py-2">Report Type</th>
+            <tr className="border-b bg-gradient-to-r from-blue-100 to-purple-100 shadow-sm">
+              <th className="py-3 px-4 font-semibold text-gray-700">Profile Name</th>
+              <th className="py-3 px-4 font-semibold text-gray-700">Date</th>
+              <th className="py-3 px-4 font-semibold text-gray-700">Report Type</th>
             </tr>
           </thead>
           <tbody>
-            {reports.map((report) => (
-              <tr key={report.id} className="border-b hover:bg-gray-50">
-                <td className="py-2">{report.name}</td>
-                <td className="py-2">{report.date}</td>
-                <td className="py-2">{report.type}</td>
+            {reports.map((report, index) => (
+              <tr
+                key={report.id}
+                style={{ animationDelay: `${index * 0.1}s` }}
+                className="border-b hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 
+                           transition-all duration-300 hover:scale-[1.01] hover:shadow-md"
+              >
+                <td className="py-3 px-4 font-medium text-gray-800">{report.name}</td>
+                <td className="py-3 px-4 text-gray-600">{report.date}</td>
+                <td className="py-3 px-4 text-gray-600">{report.type}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+
+      {/* Tailwind custom animations */}
+      <style>{`
+        @keyframes fadeIn {
+          0% { opacity: 0; transform: translateY(10px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.5s ease-out forwards;
+        }
+        @keyframes gradientMove {
+          0% { background-position: 0% center; }
+          100% { background-position: -200% center; }
+        }
+        .animate-gradientMove {
+          animation: gradientMove 4s ease infinite;
+        }
+      `}</style>
     </div>
   );
 }
