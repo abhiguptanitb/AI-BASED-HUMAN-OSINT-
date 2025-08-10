@@ -1,6 +1,17 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Home, User, Search, FileText, LogOut, Menu, X } from "lucide-react";
+import {
+  Home,
+  User,
+  Search,
+  FileText,
+  LogOut,
+  Menu,
+  X,
+  Settings,
+  Activity,
+  GitBranch,
+} from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Sidebar() {
@@ -11,8 +22,12 @@ export default function Sidebar() {
   const links = [
     { name: "Dashboard", icon: <Home size={20} />, path: "/" },
     { name: "Profiles", icon: <User size={20} />, path: "/profiles" },
+    { name: "Profile Details", icon: <User size={20} />, path: "/profile-details" },
+    { name: "Connections", icon: <GitBranch size={20} />, path: "/connections-graph" },
+    { name: "Data Insights", icon: <Activity size={20} />, path: "/data-source-insights" },
     { name: "Search", icon: <Search size={20} />, path: "/search" },
     { name: "Reports", icon: <FileText size={20} />, path: "/reports" },
+    // { name: "Settings", icon: <Settings size={20} />, path: "/settings" },
   ];
 
   const handleLogout = () => {
@@ -49,7 +64,7 @@ export default function Sidebar() {
                 className={`flex items-center gap-3 p-3 rounded-lg transition transform hover:scale-[1.02] hover:shadow-lg ${
                   location.pathname === link.path
                     ? "bg-white text-blue-700 font-semibold shadow-md"
-                    : "hover:bg-blue-600"
+                    : "hover:bg-[#4892E2]"
                 }`}
               >
                 {link.icon}
