@@ -9,11 +9,6 @@ Welcome to the **AI-Based Human OSINT for India**! This project delivers a moder
 - 🔍 Real-time AI interactions
 - 📱 Mobile-friendly layout
 
-## 🖥️ Preview
-
-<!-- Add a screenshot of your frontend below -->
-![Screenshot](./screenshots/demo.png)
-
 ## 🛠️ Getting Started
 
 ### Prerequisites
