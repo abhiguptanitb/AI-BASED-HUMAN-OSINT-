@@ -11,6 +11,7 @@ import {
   Settings,
   Activity,
   GitBranch,
+  Bot,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -27,6 +28,7 @@ export default function Sidebar() {
     { name: "Data Insights", icon: <Activity size={20} />, path: "/data-source-insights" },
     { name: "Search", icon: <Search size={20} />, path: "/search" },
     { name: "Reports", icon: <FileText size={20} />, path: "/reports" },
+    { name: "Intune Chatbot", icon: <Bot size={20} />, path: "/intune-chatbot" },
     // { name: "Settings", icon: <Settings size={20} />, path: "/settings" },
   ];
 

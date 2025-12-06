@@ -10,6 +10,7 @@ import Settings from "./pages/Settings";
 import DataSourceInsights from "./pages/DataSourceInsights";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import IntuneChatbot from "./pages/IntuneChatbot";
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/data-source-insights" element={<DataSourceInsights />} />
           <Route path="/search" element={<Search />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/intune-chatbot" element={<IntuneChatbot />} />
           {/* <Route path="/settings" element={<Settings />} /> */}
         </Route>
       </Routes>
