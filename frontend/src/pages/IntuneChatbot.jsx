@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import {
   Activity,
   AlertTriangle,
@@ -145,28 +145,28 @@ const focusFilters = [
   {
     id: "overview",
     label: "Unified overview",
-    icon: Sparkles,
+    icon: <Sparkles size={16} />,
     selectedClass:
       "text-white border-transparent bg-gradient-to-r from-blue-600 to-violet-500 shadow-lg ring-2 ring-white/30",
   },
   {
     id: "compliance",
     label: "Compliance posture",
-    icon: ShieldCheck,
+    icon: <ShieldCheck size={16} />,
     selectedClass:
       "text-white border-transparent bg-gradient-to-r from-emerald-500 to-green-600 shadow-lg ring-2 ring-white/30",
   },
   {
     id: "endpoint",
     label: "Endpoint health",
-    icon: Activity,
+    icon: <Activity size={16} />,
     selectedClass:
       "text-white border-transparent bg-gradient-to-r from-cyan-500 to-sky-500 shadow-lg ring-2 ring-white/30",
   },
   {
     id: "alerts",
     label: "Alerts & RCA",
-    icon: AlertTriangle,
+    icon: <AlertTriangle size={16} />,
     selectedClass:
       "text-white border-transparent bg-gradient-to-r from-amber-500 to-orange-500 shadow-lg ring-2 ring-white/30",
   },
@@ -382,12 +382,12 @@ export default function IntuneChatbot() {
         </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-[2fr,1fr] gap-6">
-          <motion.section
+          <Motion.section
             layout
             className="bg-white border border-slate-100 rounded-3xl shadow-xl shadow-slate-200/40 p-6 flex flex-col"
           >
             <div className="flex flex-wrap items-center gap-3 mb-6">
-              {focusFilters.map(({ id, label, icon: Icon, selectedClass }) => (
+              {focusFilters.map(({ id, label, icon, selectedClass }) => (
                 <button
                   key={id}
                   type="button"
@@ -398,7 +398,7 @@ export default function IntuneChatbot() {
                       : "border-slate-200 text-slate-600 hover:border-indigo-300 hover:text-indigo-700"
                   }`}
                 >
-                  <Icon size={16} />
+                  {icon}
                   {label}
                 </button>
               ))}
@@ -410,7 +410,7 @@ export default function IntuneChatbot() {
             >
               <div className="flex flex-col gap-4">
                 {messages.map((message) => (
-                  <motion.div
+                  <Motion.div
                     key={message.id}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -467,11 +467,11 @@ export default function IntuneChatbot() {
                         <MessageCircle size={20} />
                       </div>
                     )}
-                  </motion.div>
+                  </Motion.div>
                 ))}
 
                 {loading && (
-                  <motion.div
+                  <Motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     className="flex gap-3"
@@ -482,7 +482,7 @@ export default function IntuneChatbot() {
                     <div className="bg-white border border-slate-100 rounded-2xl p-4 text-sm text-slate-600">
                       Analyzing Intune signals…
                     </div>
-                  </motion.div>
+                  </Motion.div>
                 )}
               </div>
             </div>
@@ -523,7 +523,7 @@ export default function IntuneChatbot() {
                 <Send size={16} />
               </button>
             </form>
-          </motion.section>
+          </Motion.section>
 
           <section className="space-y-4">
             <div className="bg-white border border-slate-100 rounded-3xl p-5 shadow-lg shadow-slate-200/40">

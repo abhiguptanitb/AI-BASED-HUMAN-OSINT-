@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import ForceGraph2D from "react-force-graph-2d";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 const data = {
   nodes: [
@@ -29,7 +29,7 @@ export default function ConnectionsGraph() {
   const fgRef = useRef();
 
   return (
-    <motion.div
+    <Motion.div
       className="p-6 flex-1 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 min-h-screen"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -109,6 +109,6 @@ export default function ConnectionsGraph() {
           backgroundColor="transparent"
         />
       </div>
-    </motion.div>
+    </Motion.div>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 export default function Signup() {
   const [formData, setFormData] = useState({
@@ -21,35 +21,35 @@ export default function Signup() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-blue-600 to-purple-700 px-4 overflow-hidden">
-      <motion.div
+      <Motion.div
         initial={{ opacity: 0, scale: 0.9, y: 30 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="bg-white shadow-xl rounded-2xl p-6 sm:p-8 w-full max-w-sm sm:max-w-md transform transition-all hover:shadow-2xl"
       >
         {/* Branding */}
-        <motion.h1
+        <Motion.h1
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
           className="text-2xl font-extrabold text-center mb-2 bg-gradient-to-r from-blue-600 via-purple-500 to-purple-700 bg-clip-text text-transparent animate-gradient-x"
         >
           OSINT
-        </motion.h1>
+        </Motion.h1>
 
-        <motion.h2
+        <Motion.h2
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
           className="text-xl sm:text-2xl font-bold mb-6 text-center text-gray-800"
         >
           Create Your Account
-        </motion.h2>
+        </Motion.h2>
 
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-4">
           {["name", "email", "password", "confirmPassword"].map((field, idx) => (
-            <motion.input
+            <Motion.input
               key={field}
               type={field.includes("password") ? "password" : field}
               name={field}
@@ -68,7 +68,7 @@ export default function Signup() {
           ))}
 
           {/* Gradient Button */}
-          <motion.button
+          <Motion.button
             type="submit"
             whileTap={{ scale: 0.97 }}
             initial={{ opacity: 0, y: 10 }}
@@ -77,11 +77,11 @@ export default function Signup() {
             className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 rounded-lg hover:opacity-90 hover:shadow-lg transition-all text-sm sm:text-base font-semibold"
           >
             Sign Up
-          </motion.button>
+          </Motion.button>
         </form>
 
         {/* Login Redirect */}
-        <motion.p
+        <Motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
@@ -94,8 +94,8 @@ export default function Signup() {
           >
             Login
           </Link>
-        </motion.p>
-      </motion.div>
+        </Motion.p>
+      </Motion.div>
     </div>
   );
 }

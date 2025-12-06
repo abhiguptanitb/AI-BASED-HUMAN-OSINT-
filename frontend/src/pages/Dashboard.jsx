@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 export default function Dashboard() {
   // Animation variants for cards
@@ -14,14 +14,14 @@ export default function Dashboard() {
   return (
     <div className="p-6 flex-1 bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen overflow-y-auto">
       {/* Page Title */}
-      <motion.h2
+      <Motion.h2
         className="text-3xl font-extrabold text-gray-800 mb-6 tracking-wide"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
         DASHBOARD OVERVIEW
-      </motion.h2>
+      </Motion.h2>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -30,7 +30,7 @@ export default function Dashboard() {
           { title: "High Risk Profiles", value: "32", color: "text-red-500" },
           { title: "Reports Generated", value: "120", color: "text-green-500" },
         ].map((stat, i) => (
-          <motion.div
+          <Motion.div
             key={stat.title}
             className="bg-white rounded-xl shadow-lg p-6 text-center border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             variants={cardVariants}
@@ -45,12 +45,12 @@ export default function Dashboard() {
             <p className={`text-4xl font-bold mt-2 ${stat.color}`}>
               {stat.value}
             </p>
-          </motion.div>
+          </Motion.div>
         ))}
       </div>
 
       {/* Recent Activity */}
-      <motion.div
+      <Motion.div
         className="bg-white rounded-xl shadow-lg p-6 mt-8 border border-gray-100"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ export default function Dashboard() {
             8, 2025
           </li>
         </ul>
-      </motion.div>
+      </Motion.div>
     </div>
   );
 }

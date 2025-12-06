@@ -6,7 +6,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 const timelineData = [
   { month: "Jan", value: 3 },
@@ -31,7 +31,7 @@ const fadeInUp = {
 
 export default function Profiles() {
   return (
-    <motion.div
+    <Motion.div
       className="p-4 sm:p-6 flex-1 bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen"
       initial="hidden"
       animate="visible"
@@ -40,17 +40,17 @@ export default function Profiles() {
       }}
     >
       {/* Title */}
-      <motion.h2
+      <Motion.h2
         className="text-2xl sm:text-3xl font-bold mb-6 tracking-wide text-gray-800"
         variants={fadeInUp}
       >
         RAJ KUMAR
-      </motion.h2>
+      </Motion.h2>
 
       {/* Chart + Risk Score */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Chart */}
-        <motion.div
+        <Motion.div
           className="lg:col-span-2 bg-white shadow-lg hover:shadow-2xl transition-all duration-300 p-6 rounded-2xl transform hover:-translate-y-1"
           variants={fadeInUp}
         >
@@ -85,10 +85,10 @@ export default function Profiles() {
               </LineChart>
             </ResponsiveContainer>
           </div>
-        </motion.div>
+        </Motion.div>
 
         {/* Risk Score */}
-        <motion.div
+        <Motion.div
           className="bg-white shadow-lg hover:shadow-2xl transition-all duration-300 p-6 rounded-2xl text-center transform hover:-translate-y-1"
           variants={fadeInUp}
         >
@@ -99,11 +99,11 @@ export default function Profiles() {
             7.5
           </div>
           <div className="text-red-500 font-semibold mt-2">High Risk</div>
-        </motion.div>
+        </Motion.div>
       </div>
 
       {/* Connections */}
-      <motion.div
+      <Motion.div
         className="bg-white shadow-lg hover:shadow-2xl transition-all duration-300 p-6 rounded-2xl mt-6 transform hover:-translate-y-1"
         variants={fadeInUp}
       >
@@ -111,10 +111,10 @@ export default function Profiles() {
           Connections
         </h3>
         <p className="text-gray-500">Graph component can be implemented here</p>
-      </motion.div>
+      </Motion.div>
 
       {/* Recent Mentions */}
-      <motion.div
+      <Motion.div
         className="bg-white shadow-lg hover:shadow-2xl transition-all duration-300 p-6 rounded-2xl mt-6 transform hover:-translate-y-1"
         variants={fadeInUp}
       >
@@ -133,17 +133,17 @@ export default function Profiles() {
             "Raj Kumar mentioned in government report - Economic Times (2025-09-12)",
             "Raj Kumar on social media - Twitter (2023-07-05)",
           ].map((item, index) => (
-            <motion.li
+            <Motion.li
               key={index}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.05 * index }}
             >
               {item}
-            </motion.li>
+            </Motion.li>
           ))}
         </ul>
-      </motion.div>
-    </motion.div>
+      </Motion.div>
+    </Motion.div>
   );
 }

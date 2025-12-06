@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 
 export default function Settings() {
   const [settings, setSettings] = useState({
@@ -17,7 +17,7 @@ export default function Settings() {
   };
 
   return (
-    <motion.div
+    <Motion.div
       className="p-6 flex-1 bg-gradient-to-br from-blue-50 to-purple-50 min-h-screen overflow-y-auto"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -72,6 +72,6 @@ export default function Settings() {
           Save Settings
         </button>
       </div>
-    </motion.div>
+    </Motion.div>
   );
 }

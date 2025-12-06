@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "framer-motion";
 
 export default function Search() {
   const [query, setQuery] = useState("");
@@ -18,17 +18,17 @@ export default function Search() {
   return (
     <div className="p-4 sm:p-6 flex-1">
       {/* Gradient Title */}
-      <motion.h2
+      <Motion.h2
         initial={{ opacity: 0, y: -15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
         className="text-2xl sm:text-3xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
       >
         SEARCH PROFILES
-      </motion.h2>
+      </Motion.h2>
 
       {/* Search Bar */}
-      <motion.div
+      <Motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, delay: 0.1 }}
@@ -47,12 +47,12 @@ export default function Search() {
         >
           Search
         </button>
-      </motion.div>
+      </Motion.div>
 
       {/* Results */}
       <AnimatePresence>
         {results.length > 0 && (
-          <motion.div
+          <Motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 15 }}
@@ -70,7 +70,7 @@ export default function Search() {
               </thead>
               <tbody>
                 {results.map((profile, idx) => (
-                  <motion.tr
+                  <Motion.tr
                     key={idx}
                     initial={{ opacity: 0, x: -15 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -88,11 +88,11 @@ export default function Search() {
                       {profile.risk}
                     </td>
                     <td className="py-3 px-3">{profile.score}</td>
-                  </motion.tr>
+                  </Motion.tr>
                 ))}
               </tbody>
             </table>
-          </motion.div>
+          </Motion.div>
         )}
       </AnimatePresence>
     </div>
