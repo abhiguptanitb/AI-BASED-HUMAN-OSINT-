@@ -11,8 +11,9 @@ import {
   Settings,
   Activity,
   GitBranch,
+  Bot,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion as Motion, AnimatePresence } from "framer-motion";
 
 export default function Sidebar() {
   const location = useLocation();
@@ -27,6 +28,7 @@ export default function Sidebar() {
     { name: "Data Insights", icon: <Activity size={20} />, path: "/data-source-insights" },
     { name: "Search", icon: <Search size={20} />, path: "/search" },
     { name: "Reports", icon: <FileText size={20} />, path: "/reports" },
+    { name: "Intune Chatbot", icon: <Bot size={20} />, path: "/intune-chatbot" },
     // { name: "Settings", icon: <Settings size={20} />, path: "/settings" },
   ];
 
@@ -88,7 +90,7 @@ export default function Sidebar() {
         {isOpen && (
           <>
             {/* Backdrop */}
-            <motion.div
+            <Motion.div
               className="fixed inset-0 bg-black bg-opacity-50 z-40"
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.5 }}
@@ -97,7 +99,7 @@ export default function Sidebar() {
             />
 
             {/* Sidebar Panel */}
-            <motion.div
+            <Motion.div
               className="fixed top-0 left-0 h-screen w-64 bg-gradient-to-b from-blue-700 to-purple-700 text-white shadow-lg flex flex-col justify-between p-4 z-50"
               initial={{ x: "-100%" }}
               animate={{ x: 0 }}
@@ -146,7 +148,7 @@ export default function Sidebar() {
                 <LogOut size={20} />
                 Logout
               </button>
-            </motion.div>
+            </Motion.div>
           </>
         )}
       </AnimatePresence>
